@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="cleave.js"></script>
+<script src="cleave-phone.i18n.js"></script>
+
+<body>
+    <input id="input-phone" type="text" />
+    <select id="select-country">
+        <option value="US">US</option>
+        <option value="GB">GB</option>
+        <option value="SG">SG</option>
+        <option value="TH">TH</option> 
+        <option value="LY">LY</option>  
+    </select>
+</body>
+<script>
+    var cleave = new Cleave('#input-phone', {
+        phone: true,
+        phoneRegionCode: 'US'
+    });
+    $('#select-country').change(function() {
+        cleave.setPhoneRegionCode(this.value);
+        cleave.setRawValue('');
+    });
+</script>
+
+</html>
